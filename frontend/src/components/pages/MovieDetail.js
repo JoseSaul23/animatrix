@@ -42,35 +42,35 @@ export class MovieDetail extends Component {
                 <div className="container my-4">
                     <h5 className="mb-4">RELATED MOVIES</h5>
                     <div className="row">
-                        <div className="col">
+                        <div className="col pr-0">
                             <img 
                                 src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
                                 alt="thumbnail"
                                 className="img-fluid"
                             />
                         </div>
-                        <div className="col">
+                        <div className="col pr-0">
                             <img 
                                 src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
                                 alt="thumbnail"
                                 className="img-fluid"
                             />
                         </div>
-                        <div className="col">
+                        <div className="col pr-0">
                             <img 
                                 src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
                                 alt="thumbnail"
                                 className="img-fluid"
                             />
                         </div>
-                        <div className="col">
+                        <div className="col pr-0">
                             <img 
                                 src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
                                 alt="thumbnail"
                                 className="img-fluid"
                             />
                         </div>
-                        <div className="col">
+                        <div className="col pr-0">
                             <img 
                                 src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
                                 alt="thumbnail"
