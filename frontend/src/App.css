@@ -11,6 +11,15 @@
  color: white !important;
 }
 
+a {
+  color: inherit !important;
+}
+
+.centered-label {
+  display: flex;
+  align-items: center;
+}
+
 .App {
   /* text-align: center; */
 }
