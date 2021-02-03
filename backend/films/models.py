@@ -4,7 +4,8 @@ from django.db import models
 class Genre(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=400)
-    # similar = 
+    thumbnail = models.URLField(max_length=400)
+    # related_genres = 
 
     class Meta:
         db_table = 'Genre'
