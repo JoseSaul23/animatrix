@@ -5,6 +5,7 @@ import {MoviesList} from './pages/MoviesList'
 import {MovieDetail} from './pages/MovieDetail'
 import {GenresList} from './pages/GenresList'
 import {GenreDetail} from './pages/GenreDetail'
+import {SearchResults} from './pages/SearchResults'
 
 export class Content extends Component {
     render() {
@@ -16,6 +17,7 @@ export class Content extends Component {
                     <Route exact path="/movies/:id" component={MovieDetail} />
                     <Route exact path="/genres" component={GenresList} />
                     <Route exact path="/genres/:id" component={GenreDetail}/>
+                    <Route exact path="/search/:query" component={SearchResults} />
                 </Switch>
             </div>
         );

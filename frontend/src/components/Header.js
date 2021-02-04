@@ -7,7 +7,7 @@ import {SearchBox} from './SearchBox'
 export class Header extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-fixed-top" style={{backgroundColor:"black"}}>
+            <nav className="navbar navbar-expand-lg sticky-top" style={{backgroundColor:"black"}}>
                 <Link className="navbar-brand ml-lg-4" to="/">
                     <Logo />
                 </Link>
