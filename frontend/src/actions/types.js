@@ -1,0 +1,9 @@
+// SEARCH TYPES
+export const LOADING_RESULTS = 'LOADING_RESULTS'
+export const GET_RESULTS = 'GET_RESULTS'
+export const CLEAR_RESULTS = 'CLEAR_RESULTS'
+
+// MOVIES
+export const LOADING_MOVIE = 'LOADING_MOVIE'
+export const GET_MOVIE = 'GET_MOVIE'
+export const CLEAR_MOVIE = 'CLEAR_MOVIE'
