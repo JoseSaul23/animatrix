@@ -19,6 +19,13 @@ class MovieDetail extends Component {
         this.props.getMovie(id)
     }
 
+    componentDidUpdate(prevProps) {
+        const {id} = this.props.match.params
+        if(prevProps.match.params.id !== id){
+            this.props.getMovie(id)
+        }
+    }
+
     componentWillUnmount() {
         this.props.clearMovie()
     }

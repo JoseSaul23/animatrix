@@ -33,7 +33,7 @@ class SearchResults extends Component {
     _renderResults = () => {
         return this.props.search.results.map( result => {
             return (
-                <div className="col">
+                <div key={result.id} className="col">
                     <Movie 
                         id={result.id}
                         thumbnail={result.thumbnail}

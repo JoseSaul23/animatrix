@@ -3,8 +3,8 @@ import {Switch, Route} from 'react-router-dom'
 import {Home} from './pages/Home'
 import {MoviesList} from './pages/MoviesList'
 import MovieDetail from './pages/MovieDetail'
-import {GenresList} from './pages/GenresList'
-import {GenreDetail} from './pages/GenreDetail'
+import GenresList from './pages/GenresList'
+import GenreDetail from './pages/GenreDetail'
 import SearchResults from './pages/SearchResults'
 
 export class Content extends Component {

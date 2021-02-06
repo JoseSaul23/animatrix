@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {GiPerspectiveDiceSixFacesThree, GiPerspectiveDiceSixFacesSix} from 'react-icons/gi'
+import {GiPerspectiveDiceSixFacesThree} from 'react-icons/gi'
 import {AiFillHome} from 'react-icons/ai'
 import {BsCollectionPlayFill} from 'react-icons/bs'
 import {FaTheaterMasks} from 'react-icons/fa'

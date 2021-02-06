@@ -7,3 +7,12 @@ export const CLEAR_RESULTS = 'CLEAR_RESULTS'
 export const LOADING_MOVIE = 'LOADING_MOVIE'
 export const GET_MOVIE = 'GET_MOVIE'
 export const CLEAR_MOVIE = 'CLEAR_MOVIE'
+export const GET_RANDOM_MOVIE = 'GET_RANDOM_MOVIE'
+
+// GENRES
+export const LOADING_GENRES = 'LOADING_GENRES'
+export const GET_GENRES = 'GET_GENRES'
+export const CLEAR_GENRES = 'CLEAR_GENRES'
+export const LOADING_GENRE = 'LOADING_GENRE'
+export const GET_GENRE = 'GET_GENRE'
+export const CLEAR_GENRE = 'CLEAR_GENRE'
