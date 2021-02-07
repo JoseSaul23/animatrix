@@ -3,6 +3,9 @@ import {
     GET_MOVIE,
     CLEAR_MOVIE,
     GET_RANDOM_MOVIE,
+    LOADING_MOVIES,
+    GET_MOVIES,
+    CLEAR_MOVIES,
 } from './types'
 import axios from 'axios'
 
@@ -46,4 +49,29 @@ export const getRandomMovie = () => (dispatch) => {
     .catch(e => {
  
     }) 
+}
+
+export const getGenreMovies = (genre_id) => (dispatch) => {
+    dispatch({
+        type: LOADING_MOVIES
+    })
+
+    axios.get(`${process.env.REACT_APP_API_URL}/api/genres/${genre_id}/movies`)
+    .then(res => {
+        dispatch({
+            type: GET_MOVIES,
+            payload: res.data
+        })
+    })
+    .catch(e => {
+        dispatch({
+            type: CLEAR_MOVIES
+        })
+    }) 
+}
+
+export const clearMovies = () => (dispatch) => {
+    dispatch({
+        type: CLEAR_MOVIES
+    })
 }

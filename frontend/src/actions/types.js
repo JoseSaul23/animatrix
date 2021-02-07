@@ -8,6 +8,9 @@ export const LOADING_MOVIE = 'LOADING_MOVIE'
 export const GET_MOVIE = 'GET_MOVIE'
 export const CLEAR_MOVIE = 'CLEAR_MOVIE'
 export const GET_RANDOM_MOVIE = 'GET_RANDOM_MOVIE'
+export const LOADING_MOVIES = 'LOADING_MOVIES'
+export const GET_MOVIES = 'GET_MOVIES'
+export const CLEAR_MOVIES = 'CLEAR_MOVIES'
 
 // GENRES
 export const LOADING_GENRES = 'LOADING_GENRES'

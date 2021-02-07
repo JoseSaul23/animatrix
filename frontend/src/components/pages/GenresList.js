@@ -28,6 +28,7 @@ class GenresList extends Component {
                         id={genre.id}
                         name={genre.name}
                         thumbnail={genre.thumbnail}
+                        description={genre.description}
                     />
                 </div>
             )

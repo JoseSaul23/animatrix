@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
+import {Movie} from '../Movie'
 import {connect} from 'react-redux'
 import {getGenreDetails, clearGenre} from '../../actions/genresActions'
+import {getGenreMovies, clearMovies} from '../../actions/moviesActions'
 import PropTypes from 'prop-types'
 
 class GenreDetail extends Component {
@@ -9,11 +11,14 @@ class GenreDetail extends Component {
         genre: PropTypes.object.isRequired,
         getGenreDetails: PropTypes.func.isRequired,
         clearGenre: PropTypes.func.isRequired,
+        getGenreMovies: PropTypes.func.isRequired,
+        clearMovies: PropTypes.func.isRequired,
     }
 
     componentDidMount() {
         const {id} = this.props.match.params
         this.props.getGenreDetails(id)
+        this.props.getGenreMovies(id)
     }
 
     componentDidUpdate(prevProps) {
@@ -25,11 +30,27 @@ class GenreDetail extends Component {
 
     componentWillUnmount() {
         this.props.clearGenre()
+        this.props.clearMovies()
+    }
+
+    _renderMovies() {
+        return this.props.movies.movies.map( movie => {
+            return (
+                <div key={movie.id} className="col">
+                    <Movie 
+                        id={movie.id}
+                        thumbnail={movie.thumbnail}
+                        gif={movie.gif}
+                        title={movie.title}
+                    />
+                </div>
+            )
+        })
     }
 
     render() {
-
         const {name, description} = this.props.genre
+        const lastMovie = this.props.movies.movies[0]
 
         return (
             <div className="text-white">
@@ -37,7 +58,7 @@ class GenreDetail extends Component {
                     width="100%"
                     height="480"
                     title="Home"
-                    src="https://www.youtube.com/embed/ldYJ916tqJY" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    src={lastMovie ? lastMovie.url : ""} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                 />
                 <div className="container mt-4">
@@ -49,47 +70,8 @@ class GenreDetail extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                            <p className="mt-2">Movie</p>
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                            <p className="mt-2">Movie</p>
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                            <p className="mt-2">Movie</p>
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                            <p className="mt-2">Movie</p>
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                            <p className="mt-2">Movie</p>
-                        </div>
+                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">
+                        {this._renderMovies()}
                     </div>
                 </div>
             </div>
@@ -99,10 +81,11 @@ class GenreDetail extends Component {
 
 const mapStateToProps = state => ({
     genre: state.genres.genre,
-    isLoading: state.genres.isLoading
+    isLoading: state.genres.isLoading,
+    movies: state.movies
 });
 
 export default connect(
     mapStateToProps,
-    {getGenreDetails, clearGenre}
+    {getGenreDetails, clearGenre, getGenreMovies, clearMovies}
 )(GenreDetail);
