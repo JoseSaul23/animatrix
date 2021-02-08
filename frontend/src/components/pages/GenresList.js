@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 class GenresList extends Component {
 
     static propTypes = {
-        genres: PropTypes.object.isRequired,
+        genres: PropTypes.array.isRequired,
         getGenres: PropTypes.func.isRequired,
         clearGenres: PropTypes.func.isRequired,
     }

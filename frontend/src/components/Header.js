@@ -12,7 +12,7 @@ export class Header extends Component {
                     <Logo />
                 </Link>
                 <div className="collapse navbar-collapse">
-                    <HeaderLinks />
+                    <HeaderLinks {...this.props}/>
                 </div>
                 <SearchBox />
             </nav>

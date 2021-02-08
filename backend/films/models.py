@@ -25,8 +25,8 @@ class Movie(models.Model):
     length = models.CharField(max_length=50)
     year = models.DateField()
     synopsis = models.TextField(max_length=400)
-    iframe = models.TextField(max_length=5000)
     url = models.URLField(max_length=400)
+    preview_url = models.URLField(max_length=400)
     genres = models.ManyToManyField(
         'Genre',
         related_name='movies',

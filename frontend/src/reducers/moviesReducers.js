@@ -35,7 +35,9 @@ export const moviesReducer = (state=initialState, action) => {
             }
         case CLEAR_MOVIE:
             return {
-                ...initialState,
+                ...state,
+                movie: {},
+                isLoading: false,
             }
         case GET_RANDOM_MOVIE:
             return {
@@ -60,7 +62,13 @@ export const moviesReducer = (state=initialState, action) => {
             }
         case CLEAR_MOVIES:
             return {
-                ...initialState
+                ...state,
+                movies: [],
+                areLoading: false,
+                loadingMore: false,
+                page: 0,
+                nextPage: "",
+                count: 0,
             }
         default:
             return state

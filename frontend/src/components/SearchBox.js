@@ -30,14 +30,24 @@ export class SearchBox extends Component {
                         onChange={this._handleChange}
                         style={{backgroundColor:"black", width:120}}
                     />
-                    <span className="input-group-append border-left-0" style={{backgroundColor:"black"}}>
+                    {/* <span className="input-group-append border-left-0" style={{backgroundColor:"black"}}>
                         <Link 
                             className="input-group-text bg-transparent text-white rounded-0"
                             to={`/search/${this.state.query}`}
                         >
                             <HiOutlineSearch size={20} />
                         </Link>
-                    </span>
+                    </span> */}
+                    <div class="input-group-append">
+                        <Link to={`/search/${this.state.query}`}>
+                            <button 
+                                class="btn text-white border-left-0 rounded-0"
+                                style={{borderColor:"#ced4da"}}
+                            >
+                                <HiOutlineSearch size={20} />
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </form>
         );

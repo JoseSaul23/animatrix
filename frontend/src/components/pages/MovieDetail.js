@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {BiTimeFive} from 'react-icons/bi'
 import {FaRegCalendarAlt} from 'react-icons/fa'
+import { Video } from '../Video'
+import {MoviesMiniCarousel} from '../MoviesMiniCarousel'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getMovie, clearMovie} from '../../actions/moviesActions'
@@ -77,54 +79,19 @@ class MovieDetail extends Component {
                     </div>
                 </div>
                 <div className="my-5">
-                    <iframe 
-                        width="100%"
-                        height="480"
-                        title="movie"
-                        src={movie.url} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
+                    <Video 
+                        src={movie.url}
                     />
                 </div>
-                <div className="container my-4">
-                    <h5 className="mb-4">RELATED MOVIES</h5>
-                    <div className="row">
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                        </div>
-                        <div className="col pr-0">
-                            <img 
-                                src="http://i3.ytimg.com/vi/ldYJ916tqJY/hqdefault.jpg"
-                                alt="thumbnail"
-                                className="img-fluid"
-                            />
-                        </div>
-                    </div>
-                </div>
+                {
+                movie.genres ?
+                <MoviesMiniCarousel
+                    id={movie.genres[0].id} 
+                    title={ `More of ${movie.genres[0].name}` }
+                    seeAllUrl={`/genres/${movie.genres[0].id}`}
+                /> :
+                null
+                }
             </div>
         );
     }

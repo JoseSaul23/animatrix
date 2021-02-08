@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Movie} from '../Movie'
+import {Video} from '../Video'
 import {connect} from 'react-redux'
 import {getGenreDetails, clearGenre} from '../../actions/genresActions'
 import {getGenreMovies, clearMovies} from '../../actions/moviesActions'
@@ -33,7 +34,7 @@ class GenreDetail extends Component {
         this.props.clearMovies()
     }
 
-    _renderMovies() {
+    _renderMovies = () => {
         return this.props.movies.movies.map( movie => {
             return (
                 <div key={movie.id} className="col">
@@ -51,15 +52,11 @@ class GenreDetail extends Component {
     render() {
         const {name, description} = this.props.genre
         const lastMovie = this.props.movies.movies[0]
-
+        console.log(lastMovie)
         return (
             <div className="text-white">
-                <iframe 
-                    width="100%"
-                    height="480"
-                    title="Home"
-                    src={lastMovie ? lastMovie.url : ""} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
+                <Video 
+                    src={lastMovie ? lastMovie.preview_url : ""}
                 />
                 <div className="container mt-4">
                     <h5 className="my-4">{name}</h5>
