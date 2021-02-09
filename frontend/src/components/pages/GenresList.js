@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Genre} from '../Genre'
+import InfiniteScroll from 'react-infinite-scroll-component';
 import {connect} from 'react-redux'
 import {getGenres, clearGenres} from '../../actions/genresActions'
 import PropTypes from 'prop-types'
@@ -7,7 +8,7 @@ import PropTypes from 'prop-types'
 class GenresList extends Component {
 
     static propTypes = {
-        genres: PropTypes.array.isRequired,
+        genres: PropTypes.object.isRequired,
         getGenres: PropTypes.func.isRequired,
         clearGenres: PropTypes.func.isRequired,
     }
@@ -18,6 +19,13 @@ class GenresList extends Component {
 
     componentWillUnmount() {
         this.props.clearGenres()
+    }
+
+    _getMoreGenres = () => {
+        if(this.props.genres.nextPage === null) {
+            return;
+        }
+        this.props.getGenres(this.props.genres.page + 1)
     }
 
     _renderGenres = () => {
@@ -36,13 +44,21 @@ class GenresList extends Component {
     }
 
     render() {
+        const {count, nextPage} = this.props.genres
+
         return (
             <div className="text-white">
                 <div className="container mt-4">
                     <h5 className="my-4">Genres</h5>
-                    <div className="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-4">
+                    <InfiniteScroll
+                        className="row row-cols-2 row-cols-sm-3 row-cols-lg-4 row-cols-xl-4"
+                        dataLength={count}
+                        next={this._getMoreGenres}
+                        hasMore={nextPage !== null ? true : false}
+                        loader={<h4>Loading...</h4>}
+                    >
                         {this._renderGenres()}
-                    </div>
+                    </InfiniteScroll>
                 </div>
             </div>
         );

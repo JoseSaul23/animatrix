@@ -5,12 +5,12 @@ import {
 } from './types'
 import axios from 'axios'
 
-export const getSearchResults = (query) => (dispatch) => {
+export const getSearchResults = (query, page=1) => (dispatch) => {
     dispatch({
         type: LOADING_RESULTS
     })
 
-    axios.get(`${process.env.REACT_APP_API_URL}/api/movies/?search=${query}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/movies/?page=${page}&search=${query}`)
     .then(res => {
         dispatch({
             type: GET_RESULTS,

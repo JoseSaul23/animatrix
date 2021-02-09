@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Movie} from '../Movie'
 import {Video} from '../Video'
+import InfiniteScroll from 'react-infinite-scroll-component';
 import {connect} from 'react-redux'
 import {getGenreDetails, clearGenre} from '../../actions/genresActions'
 import {getGenreMovies, clearMovies} from '../../actions/moviesActions'
@@ -22,18 +23,19 @@ class GenreDetail extends Component {
         this.props.getGenreMovies(id)
     }
 
-    componentDidUpdate(prevProps) {
-        const {id} = this.props.match.params
-        if(prevProps.match.params.id !== id){
-            this.props.getGenreDetails(id)
-        }
-    }
-
     componentWillUnmount() {
         this.props.clearGenre()
         this.props.clearMovies()
     }
 
+    _getMoreMovies = () => {
+        if(this.props.movies.nextPage === null) {
+            return;
+        }
+        const {id} = this.props.match.params
+        this.props.getGenreMovies(id, this.props.movies.page + 1)
+    }
+ 
     _renderMovies = () => {
         return this.props.movies.movies.map( movie => {
             return (
@@ -51,8 +53,9 @@ class GenreDetail extends Component {
 
     render() {
         const {name, description} = this.props.genre
+        const {count, nextPage} = this.props.movies
         const lastMovie = this.props.movies.movies[0]
-        console.log(lastMovie)
+
         return (
             <div className="text-white">
                 <Video 
@@ -67,9 +70,21 @@ class GenreDetail extends Component {
                             </p>
                         </div>
                     </div>
-                    <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5">
+                    <InfiniteScroll
+                        className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5"
+                        dataLength={count}
+                        next={this._getMoreMovies}
+                        hasMore={nextPage !== null ? true : false}
+                        loader={
+                            <div class="col text-center">
+                                <div class="spinner-border">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        }
+                    >
                         {this._renderMovies()}
-                    </div>
+                    </InfiniteScroll>
                 </div>
             </div>
         );

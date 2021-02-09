@@ -38,10 +38,10 @@ export class SearchBox extends Component {
                             <HiOutlineSearch size={20} />
                         </Link>
                     </span> */}
-                    <div class="input-group-append">
+                    <div className="input-group-append">
                         <Link to={`/search/${this.state.query}`}>
                             <button 
-                                class="btn text-white border-left-0 rounded-0"
+                                className="btn text-white border-left-0 rounded-0"
                                 style={{borderColor:"#ced4da"}}
                             >
                                 <HiOutlineSearch size={20} />

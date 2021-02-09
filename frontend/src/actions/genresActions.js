@@ -8,12 +8,12 @@ import {
 } from './types'
 import axios from 'axios'
 
-export const getGenres = () => (dispatch) => {
+export const getGenres = (page=1) => (dispatch) => {
     dispatch({
         type: LOADING_GENRES
     })
 
-    axios.get(`${process.env.REACT_APP_API_URL}/api/genres/`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/genres/?page=${page}`)
     .then(res => {
         dispatch({
             type: GET_GENRES,
@@ -42,7 +42,7 @@ export const getGenreDetails = (id) => (dispatch) => {
         type: LOADING_GENRE
     })
 
-    axios.get(`${process.env.REACT_APP_API_URL}/api/genres/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api/genres/${id}/`)
     .then(res => {
         dispatch({
             type: GET_GENRE,

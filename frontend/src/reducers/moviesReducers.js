@@ -3,7 +3,6 @@ import {
     GET_MOVIE,
     CLEAR_MOVIE,
     GET_RANDOM_MOVIE,
-    LOADING_MOVIES,
     GET_MOVIES,
     CLEAR_MOVIES,
 } from '../actions/types'
@@ -13,8 +12,6 @@ const initialState = {
     isLoading: false,
     random_movie: 0,
     movies: [],
-    areLoading: false,
-    loadingMore: false,
     page: 0,
     nextPage: "",
     count: 0,
@@ -44,12 +41,6 @@ export const moviesReducer = (state=initialState, action) => {
                 ...state,
                 random_movie: action.payload.id
             }
-        case LOADING_MOVIES:
-            return {
-                ...state,
-                areLoading: state.page === 0 ? true : false,
-                loadingMore: state.page > 0 ? true : false
-            }
         case GET_MOVIES:
             return {
                 ...state,
@@ -58,14 +49,12 @@ export const moviesReducer = (state=initialState, action) => {
                 nextPage: action.payload.next,
                 count: action.payload.count,
                 areLoading: false,
-                loadingMore: false,
             }
         case CLEAR_MOVIES:
             return {
                 ...state,
                 movies: [],
                 areLoading: false,
-                loadingMore: false,
                 page: 0,
                 nextPage: "",
                 count: 0,
