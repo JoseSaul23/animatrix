@@ -43,17 +43,16 @@ class MoviesList extends Component {
 
     render() {
         const {count, nextPage} = this.props.genres
-
-        return (
+        const content = 
             <div className="text-white">
                 <InfiniteScroll
                     dataLength={count}
                     next={this._getMoreGenresMovies}
                     hasMore={nextPage !== null ? true : false}
                     loader={
-                        <div class="text-center">
-                            <div class="spinner-border">
-                                <span class="sr-only">Loading...</span>
+                        <div className="text-center">
+                            <div className="spinner-border">
+                                <span className="sr-only">Loading....</span>
                             </div>
                         </div>
                     }
@@ -61,7 +60,8 @@ class MoviesList extends Component {
                     { this._renderGenreMovies() }
                 </InfiniteScroll>
             </div>
-        );
+
+        return ( this.props.genres.areLoading ? "" : content );
     }
 }
 

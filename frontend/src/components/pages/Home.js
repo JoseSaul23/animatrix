@@ -62,13 +62,7 @@ class Home extends Component {
                     dataLength={count}
                     next={this._getMoreGenresMovies}
                     hasMore={nextPage !== null ? true : false}
-                    loader={
-                        <div class="col text-center">
-                            <div class="spinner-border">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                        </div>
-                    }
+                    loader={""}
                 >
                     { this._renderGenreMovies() }
                 </InfiniteScroll> 

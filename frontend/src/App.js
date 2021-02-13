@@ -5,17 +5,17 @@ import {Header} from './components/Header'
 import {MenuMobile} from './components/MenuMobile'
 import {Content} from './components/Content'
 import {Route} from 'react-router-dom'
-// import {Footer} from './components/Footer'
+import {Footer} from './components/Footer'
 
 class App extends Component {
 
   render () {
     return (
-      <div>
+      <div style={{paddingBottom:"60px"}}>
         <Route component={Header} />
-        <Content />
+        <Content/>
         <Route component={MenuMobile} />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

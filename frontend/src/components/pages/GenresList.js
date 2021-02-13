@@ -45,8 +45,7 @@ class GenresList extends Component {
 
     render() {
         const {count, nextPage} = this.props.genres
-
-        return (
+        const content = 
             <div className="text-white">
                 <div className="container mt-4">
                     <h5 className="my-4">Genres</h5>
@@ -61,7 +60,7 @@ class GenresList extends Component {
                     </InfiniteScroll>
                 </div>
             </div>
-        );
+        return ( this.props.genres.areLoading ? "" : content );
     }
 }
 

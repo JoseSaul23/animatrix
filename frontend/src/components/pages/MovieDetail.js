@@ -44,18 +44,22 @@ class MovieDetail extends Component {
     }
 
     render() {
-        const {movie} = this.props.movies
+        const {movie, isLoading} = this.props.movies
 
-        return (
+        const content =
             <div className="text-white mt-5">
                 <div className="container">
                     <div className="row d-flex">
                         <div className="col-5 col-md-3 pr-0">
+                            { 
+                            isLoading ?
+                            null :
                             <img 
                                 src={movie.thumbnail}
                                 alt="thumbnail"
                                 className="img-fluid"
                             />
+                            }
                         </div>
                         <div className="col ml-md-2">
                             <h5 className="mb-3">{movie.title}</h5>
@@ -68,11 +72,11 @@ class MovieDetail extends Component {
                                 <span className="ml-2">{movie.year}</span>
                             </p>
                             <p>
-                                Genres: {
-                                    movie.genres
-                                    ? this._renderGenres(movie)
-                                    : null
-                                }
+                            {
+                                movie.genres
+                                ? <span>Genres: {this._renderGenres(movie)}</span>
+                                : null
+                            }
                             </p>
                             <p>{movie.synopsis}</p>
                         </div>
@@ -93,7 +97,7 @@ class MovieDetail extends Component {
                 null
                 }
             </div>
-        );
+        return ( content );
     }
 }
 

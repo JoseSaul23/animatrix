@@ -10,7 +10,7 @@ import SearchResults from './pages/SearchResults'
 export class Content extends Component {
     render() {
         return (
-            <div>
+            <div className="flex-fill">
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/movies" component={MoviesList} />

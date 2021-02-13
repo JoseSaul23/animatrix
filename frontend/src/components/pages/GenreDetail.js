@@ -55,8 +55,7 @@ class GenreDetail extends Component {
         const {name, description} = this.props.genre
         const {count, nextPage} = this.props.movies
         const lastMovie = this.props.movies.movies[0]
-
-        return (
+        const content = 
             <div className="text-white">
                 <Video 
                     src={lastMovie ? lastMovie.preview_url : ""}
@@ -76,9 +75,9 @@ class GenreDetail extends Component {
                         next={this._getMoreMovies}
                         hasMore={nextPage !== null ? true : false}
                         loader={
-                            <div class="col text-center">
-                                <div class="spinner-border">
-                                    <span class="sr-only">Loading...</span>
+                            <div className="col text-center">
+                                <div className="spinner-border">
+                                    <span className="sr-only">Loading....</span>
                                 </div>
                             </div>
                         }
@@ -87,7 +86,8 @@ class GenreDetail extends Component {
                     </InfiniteScroll>
                 </div>
             </div>
-        );
+
+        return ( this.props.isLoading ? "" : content );
     }
 }
 

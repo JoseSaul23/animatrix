@@ -37,18 +37,21 @@ const responsive = {
 export class MoviesMiniCarousel extends Component {
 
     state = {
-        movies: []
+        movies: [],
+        loading: true
     }
 
     componentDidMount() {
         this._getMovies(this.props.id)
     }
 
+    // DECOPLAR LOGICA DE PETICION 
     _getMovies = (id) => {
         if(id !== null) {
             axios.get(`${process.env.REACT_APP_API_URL}/api/genres/${id}/movies`)
             .then(res => {
                 this.setState({ movies: res.data.results })
+                this.setState({ loading: false })
             })
             .catch(e => {
                 
@@ -57,6 +60,7 @@ export class MoviesMiniCarousel extends Component {
             axios.get(`${process.env.REACT_APP_API_URL}/api/movies/last_movies`)
             .then(res => {
                 this.setState({ movies: res.data })
+                this.setState({ loading: false })
             })
             .catch(e => {
                 
@@ -81,8 +85,7 @@ export class MoviesMiniCarousel extends Component {
 
     render() {
         const {title, seeAllUrl} = this.props
-
-        return (
+        const content =
             <div className="container my-4">
                 <Link to={seeAllUrl}>
                     <h5 className="mb-3 hiden-label-container">
@@ -101,6 +104,7 @@ export class MoviesMiniCarousel extends Component {
                     {this._renderMovies()}
                 </Carousel>
             </div>
-        );
+
+        return(this.state.loading ? "" : content);
     }
 }

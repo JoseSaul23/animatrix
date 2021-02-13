@@ -5,7 +5,7 @@ import {ImYoutube} from 'react-icons/im'
 export class Footer extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg" style={{backgroundColor:"black"}}>
+            <nav className="navbar navbar-expand-lg fixed-bottom" style={{backgroundColor:"black"}}>
                 <div className="collapse navbar-collapse text-white">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
