@@ -15,8 +15,8 @@ export class Movie extends Component {
                     src={this.state.imgSrc}
                     alt="thumbnail"
                     className="img-fluid"
-                    onMouseOver={ () => {this.setState({imgSrc:gif})} }
-                    onMouseOut={ () => {this.setState({imgSrc: thumbnail})}}
+                    // onMouseOver={ () => {this.setState({imgSrc:gif})} }
+                    // onMouseOut={ () => {this.setState({imgSrc: thumbnail})}}
                 />
                 <p className="mt-2">{title}</p>
             </Link>

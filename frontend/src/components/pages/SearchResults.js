@@ -61,7 +61,7 @@ class SearchResults extends Component {
             <div className="text-white">
                 <div className="container mt-4">
                     <h6 className="my-4">
-                        {count} results in 0,2 seconds for {this.props.match.params.query}
+                        {count} results for {this.props.match.params.query}
                     </h6>
                     <InfiniteScroll
                         className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5"
