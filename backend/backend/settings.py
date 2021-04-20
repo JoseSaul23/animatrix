@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://josesaul23.github.io/animatrix"
+    "https://josesaul23.github.io"
 ]
 
 # Application definition
