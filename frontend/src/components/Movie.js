@@ -7,7 +7,7 @@ export class Movie extends Component {
     }
 
     render() {
-        const {id, thumbnail, gif, title} = this.props
+        const {id, title} = this.props
 
         return (
             <Link to={`/movies/${id}`} className="">
@@ -15,8 +15,6 @@ export class Movie extends Component {
                     src={this.state.imgSrc}
                     alt="thumbnail"
                     className="img-fluid"
-                    // onMouseOver={ () => {this.setState({imgSrc:gif})} }
-                    // onMouseOut={ () => {this.setState({imgSrc: thumbnail})}}
                 />
                 <p className="mt-2">{title}</p>
             </Link>

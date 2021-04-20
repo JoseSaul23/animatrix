@@ -44,22 +44,21 @@ class MoviesList extends Component {
     render() {
         const {count, nextPage} = this.props.genres
         const content = 
-            <div className="text-white">
-                <InfiniteScroll
-                    dataLength={count}
-                    next={this._getMoreGenresMovies}
-                    hasMore={nextPage !== null ? true : false}
-                    loader={
-                        <div className="text-center">
-                            <div className="spinner-border">
-                                <span className="sr-only">Loading....</span>
-                            </div>
+            <InfiniteScroll
+                dataLength={count}
+                next={this._getMoreGenresMovies}
+                hasMore={nextPage !== null ? true : false}
+                loader={
+                    <div className="text-center">
+                        <div className="spinner-border">
+                            <span className="sr-only">Loading....</span>
                         </div>
-                    }
-                >
-                    { this._renderGenreMovies() }
-                </InfiniteScroll>
-            </div>
+                    </div>
+                }
+                className="container text-white mt-4"
+            >
+                { this._renderGenreMovies() }
+            </InfiniteScroll>
 
         return ( this.props.genres.areLoading ? "" : content );
     }

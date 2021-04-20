@@ -51,11 +51,13 @@ class Home extends Component {
                 <Video 
                     src={"https://www.youtube.com/embed/ldYJ916tqJY?autoplay=1&mute=0&start=168&end=198"}
                 />
-                <MoviesMiniCarousel
-                    id={null} 
-                    title="Last Added"
-                    seeAllUrl="/movies"
-                />
+                <div className="container mt-2">
+                    <MoviesMiniCarousel
+                        id={null} 
+                        title="Last Added"
+                        seeAllUrl="/movies"
+                    />
+                </div>
                 {/* Aqui no iria infinite scrolling al ser la prinicipal
                 solo seria la primera pagina de 12 */}
                 <InfiniteScroll
@@ -63,6 +65,7 @@ class Home extends Component {
                     next={this._getMoreGenresMovies}
                     hasMore={nextPage !== null ? true : false}
                     loader={""}
+                    className="container"
                 >
                     { this._renderGenreMovies() }
                 </InfiniteScroll> 

@@ -86,7 +86,7 @@ export class MoviesMiniCarousel extends Component {
     render() {
         const {title, seeAllUrl} = this.props
         const content =
-            <div className="container my-4">
+            <div className="mb-2">
                 <Link to={seeAllUrl}>
                     <h5 className="mb-3 hiden-label-container">
                         {title}

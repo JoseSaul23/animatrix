@@ -66,7 +66,7 @@ class MovieDetail extends Component {
                             <p className="centered-label">
                                 <span className="mr-4 centered-label">
                                     <BiTimeFive style={{color:"#1ED760"}}/>
-                                    <span className="ml-2">{movie.length}</span>
+                                    <span className="ml-2">{movie.length} {" min"}</span>
                                 </span>
                                 <FaRegCalendarAlt style={{color:"#1ED760"}} size={14}/>
                                 <span className="ml-2">{movie.year}</span>
@@ -82,18 +82,20 @@ class MovieDetail extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="my-5">
+                <div className="my-4">
                     <Video 
                         src={movie.url}
                     />
                 </div>
                 {
                 movie.genres ?
-                <MoviesMiniCarousel
-                    id={movie.genres[0].id} 
-                    title={ `More of ${movie.genres[0].name}` }
-                    seeAllUrl={`/genres/${movie.genres[0].id}`}
-                /> :
+                <div className="container">
+                    <MoviesMiniCarousel
+                        id={movie.genres[0].id} 
+                        title={ `More of ${movie.genres[0].name}` }
+                        seeAllUrl={`/genres/${movie.genres[0].id}`}
+                    /> 
+                </div> :
                 null
                 }
             </div>
