@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/animatrix/static/css/main.45e3a7e3.chunk.css",
-    "main.js": "/animatrix/static/js/main.4e18bd8e.chunk.js",
-    "main.js.map": "/animatrix/static/js/main.4e18bd8e.chunk.js.map",
+    "main.css": "/animatrix/static/css/main.6dda48ab.chunk.css",
+    "main.js": "/animatrix/static/js/main.8200cfdb.chunk.js",
+    "main.js.map": "/animatrix/static/js/main.8200cfdb.chunk.js.map",
     "runtime-main.js": "/animatrix/static/js/runtime-main.564c5078.js",
     "runtime-main.js.map": "/animatrix/static/js/runtime-main.564c5078.js.map",
     "static/css/2.48c7100f.chunk.css": "/animatrix/static/css/2.48c7100f.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.07c2b9ed.chunk.js.map": "/animatrix/static/js/3.07c2b9ed.chunk.js.map",
     "index.html": "/animatrix/index.html",
     "static/css/2.48c7100f.chunk.css.map": "/animatrix/static/css/2.48c7100f.chunk.css.map",
-    "static/css/main.45e3a7e3.chunk.css.map": "/animatrix/static/css/main.45e3a7e3.chunk.css.map",
+    "static/css/main.6dda48ab.chunk.css.map": "/animatrix/static/css/main.6dda48ab.chunk.css.map",
     "static/js/2.718af425.chunk.js.LICENSE.txt": "/animatrix/static/js/2.718af425.chunk.js.LICENSE.txt",
     "static/media/logo.00d1e1db.png": "/animatrix/static/media/logo.00d1e1db.png",
     "static/media/styles.css": "/animatrix/static/media/revicons.e8746a62.woff"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.564c5078.js",
     "static/css/2.48c7100f.chunk.css",
     "static/js/2.718af425.chunk.js",
-    "static/css/main.45e3a7e3.chunk.css",
-    "static/js/main.4e18bd8e.chunk.js"
+    "static/css/main.6dda48ab.chunk.css",
+    "static/js/main.8200cfdb.chunk.js"
   ]
 }
