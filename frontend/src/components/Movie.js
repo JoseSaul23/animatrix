@@ -11,11 +11,13 @@ export class Movie extends Component {
 
         return (
             <Link to={`/movies/${id}`} className="">
-                <img 
-                    src={this.state.imgSrc}
-                    alt="thumbnail"
-                    className="img-fluid"
-                />
+                <div className="overflow">
+                    <img 
+                        src={this.state.imgSrc}
+                        alt="thumbnail"
+                        className="img-fluid movie-img"
+                    />
+                </div>
                 <p className="mt-2">{title}</p>
             </Link>
         );
